@@ -1,0 +1,212 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Waktu pembuatan: 18 Jun 2023 pada 09.48
+-- Versi server: 10.4.27-MariaDB
+-- Versi PHP: 8.0.25
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `tubes1`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_pasien`
+--
+
+CREATE TABLE `data_pasien` (
+  `id_pasien` int(11) NOT NULL,
+  `n_pasien` text NOT NULL,
+  `ttl_pasien` varchar(20) NOT NULL,
+  `riwayat_penyakit` text NOT NULL,
+  `n_kamar` text NOT NULL,
+  `banyak_infusan` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `data_pasien`
+--
+
+INSERT INTO `data_pasien` (`id_pasien`, `n_pasien`, `ttl_pasien`, `riwayat_penyakit`, `n_kamar`, `banyak_infusan`) VALUES
+(1, 'Mantan Bin Kenangan', '12-23-11', 'Diselingkuhi', 'Tidak Di restui', '12');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `date_imfusan`
+--
+
+CREATE TABLE `date_imfusan` (
+  `id` int(11) NOT NULL,
+  `day` varchar(11) NOT NULL,
+  `date` varchar(11) NOT NULL,
+  `jp` varchar(20) NOT NULL,
+  `jh` varchar(20) NOT NULL,
+  `sr` varchar(20) NOT NULL,
+  `m_lodacel` varchar(20) NOT NULL,
+  `jenis` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `date_imfusan`
+--
+
+INSERT INTO `date_imfusan` (`id`, `day`, `date`, `jp`, `jh`, `sr`, `m_lodacel`, `jenis`) VALUES
+(5, '1682926092', '1682926092', '14:28:12', '07:42:11', '29', 'Habis', 'HCL'),
+(6, '1685752931', '1685752931', '07:42:11', '10:08:06', '29', 'Habis', 'NHCL'),
+(7, '1685848086', '1685848086', '10:08:06', '10:25:24', '2', 'Habis', 'NHCL 2'),
+(8, '1685849124', '1685849124', '10:25:24', '00-00-00', '2', 'Pasang', 'NHCL 3');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `date_loadcell`
+--
+
+CREATE TABLE `date_loadcell` (
+  `id_loadcell` int(11) NOT NULL,
+  `date_loadcell` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `date_loadcell`
+--
+
+INSERT INTO `date_loadcell` (`id_loadcell`, `date_loadcell`) VALUES
+(5, '0'),
+(6, '0'),
+(7, '0'),
+(8, '0'),
+(9, '1'),
+(10, '3'),
+(11, '3'),
+(12, '3');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `date_suhu`
+--
+
+CREATE TABLE `date_suhu` (
+  `id_suhu` int(11) NOT NULL,
+  `suhu` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `date_suhu`
+--
+
+INSERT INTO `date_suhu` (`id_suhu`, `suhu`) VALUES
+(1, '9'),
+(2, '29'),
+(3, '2'),
+(4, '2'),
+(5, '2'),
+(6, '2');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `jenis_infusan`
+--
+
+CREATE TABLE `jenis_infusan` (
+  `id_jenis` int(11) NOT NULL,
+  `jenis` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `jenis_infusan`
+--
+
+INSERT INTO `jenis_infusan` (`id_jenis`, `jenis`) VALUES
+(1, 'NHCL'),
+(2, 'NHCL 3'),
+(3, 'Dextrose 5% (D5W)');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `data_pasien`
+--
+ALTER TABLE `data_pasien`
+  ADD PRIMARY KEY (`id_pasien`);
+
+--
+-- Indeks untuk tabel `date_imfusan`
+--
+ALTER TABLE `date_imfusan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `date_loadcell`
+--
+ALTER TABLE `date_loadcell`
+  ADD PRIMARY KEY (`id_loadcell`);
+
+--
+-- Indeks untuk tabel `date_suhu`
+--
+ALTER TABLE `date_suhu`
+  ADD PRIMARY KEY (`id_suhu`);
+
+--
+-- Indeks untuk tabel `jenis_infusan`
+--
+ALTER TABLE `jenis_infusan`
+  ADD PRIMARY KEY (`id_jenis`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `data_pasien`
+--
+ALTER TABLE `data_pasien`
+  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `date_imfusan`
+--
+ALTER TABLE `date_imfusan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT untuk tabel `date_loadcell`
+--
+ALTER TABLE `date_loadcell`
+  MODIFY `id_loadcell` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT untuk tabel `date_suhu`
+--
+ALTER TABLE `date_suhu`
+  MODIFY `id_suhu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT untuk tabel `jenis_infusan`
+--
+ALTER TABLE `jenis_infusan`
+  MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

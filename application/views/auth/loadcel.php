@@ -1,0 +1,1 @@
+<div class="progress-bar" role="progressbar" style="width: <?= $berat->date_loadcell ?>%;" aria-valuenow="<?= $berat->date_loadcell ?>" aria-valuemin="0" aria-valuemax="100"><?= $berat->date_loadcell ?>%</div>
